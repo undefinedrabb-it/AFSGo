@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using AFSGo.Web.Models
+@inject SignInManager<UserViewModel> SignInManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Translation" asp-action="Index">
+            Translations
+        </a>
+    </li>
+}

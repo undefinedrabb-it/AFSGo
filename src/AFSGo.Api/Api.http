@@ -1,0 +1,13 @@
+
+###
+@Api_HostAddress = http://127.0.0.1:5000
+@Translator = leetspeak
+
+@Text = Hello World!
+
+POST {{Api_HostAddress}}/Translate/{{Translator}}.json
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+text = {{Text}}
+###

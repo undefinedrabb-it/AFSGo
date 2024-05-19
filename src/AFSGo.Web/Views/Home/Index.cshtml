@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using AFSGo.Web.Common
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container-fluid d-flex justify-content-center align-items-center">
+    <div class="d-flex flex-row gap-2 w-75 flex-grow-1 ">
+        <div class="card w-50">
+            <div class="card-body">
+                <h1 class="card-title">Input</h1>
+                <form id="translationForm">
+                    <div class="mb-4">
+                        <label for="translator">Select Translator:</label>
+                        <select class="form-select form-control" name="translator" id="translator">
+                            <optgroup label="@FunTranslators.DisplayName">
+                                @foreach (var name in FunTranslators.Get())
+                                {
+                                    <option value="@FunTranslators.Key/@name">@name</option>
+                                }
+                            </optgroup>
+                            <optgroup label="@DummyTranslators.DisplayName">
+                                @foreach (var name in DummyTranslators.Get())
+                                {
+                                    <option value="@DummyTranslators.Key/@name">@name</option>
+                                }
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="inputText">Input Text:</label>
+                        <textarea required type="text" class="form-control" id="inputText" name="inputText"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-translate">Translate</button>
+                </form>
+            </div>
+        </div>
+        <div class="card w-50" id="translatedText">
+            <div class="card-body">
+                <h1 class="card-title">Output</h1>
+                <p id="translated-output" class="card-text">Here goes the translated text...</p>
+            </div>
+        </div>
+    </div>
+</div>

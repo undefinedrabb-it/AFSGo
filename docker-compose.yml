@@ -1,0 +1,15 @@
+﻿services:
+  web:
+    image: web
+    build:
+      context: .
+      dockerfile: src/AFSGo.Web/Dockerfile
+    ports:
+        - "8080:8080"
+  api:
+    image: api
+    build:
+      context: .
+      dockerfile: src/AFSGo.Api/Dockerfile
+    ports:
+        - "5000:8080"
